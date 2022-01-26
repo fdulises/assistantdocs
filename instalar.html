@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalar - Assistant Manager</title>
+</head>
+<body>
+<div class="section no-pad-bot" id="firsttag">
+    <div class="container">
+        <h1 class="header orange-text">Instalación del modulo</h1>
+    </div>
+</div>
+<main>
+    <div class="container">
+        <p>A continuación describiremos el proceso de instalación del plugin para su uso en Drupal.</p>
+        <p>Es necesario subir los archivos del plugin a la carpeta de modulos de Drupal. Esta carpeta se encuentra en: <br><strong class="brown-text">[Drupal_Dir]/web/modules/</strong></p>
+
+        <h4>Paso 1 - Instalar el plugin en el Backoffice de Drupal</h4>
+        <p>Para que el código funcione primero se necesita instalar y activar el proyecto desde el panel de administración, en la sección de modulos.</p>
+
+        <h4>Paso 2 - Crear tabla en la base de datos</h4>
+        <p>Ahora con el plugin reconocido por Drupal podemos proceder a crear la tabla para persistencia de datos del asistente.</p>
+        <p>Para ello solo hay que dirigirse a la URL: <strong class="brown-text">[Drupal_URL]/pm/install</strong>, y la base de datos habrá sido creada.</p>
+
+        <h4>Paso 3 - Crear el archivo de configuración</h4>
+        <p>Dentro de los archivos del plugin se encuentra el archivo <strong class="brown-text">pmconfig.yml.sample</strong>, hay que renombrarlo a <strong class="brown-text">pmconfig.yml</strong>, y en el escribiremos los nombres de maquina de Drupal para el contenido relacionado con el asistente.</p>
+
+        <h4>Paso 4 - Crear la taxonomia "field_plugin"</h4>
+        <p>Se requiere una taxonomia para poder usar los subplugins del Assistantmanager.</p>
+        <p>El nombre de maquina de la taxonomia debe ser "field_plugin" u otro, pero debe anotarse en el archivo <strong class="brown-text">pmconfig.yml</strong> en el parametro <strong class="brown-text">plugin_taxonomy</strong>.</p>
+
+        <h4>Paso 5 - Añadir terminos para subplugins</h4>
+        <p>Es necesario crear un termino en la taxonomia anterior por cada directorío dentro de <strong class="brown-text">Assistantmanager/pm/</strong>, se debe usar exactamente el mismo nombre, ya que este es el nombre identificativo de cada subplugin.</p>
+
+        <h4>Paso #6 - Crear tipos de contenido para Asistentes y para pasos</h4>
+        <p>Se debe crear un tipo de contenido para asistentes y otro para pasos, y los nombres de maquina de estos deben anotarse en el archivo de configuración del asistente.</p>
+        <p>Para poder enlazar pasos a asistentes se usa el plugin <a href="https://www.drupal.org/docs/8/modules/entity-browser/inline-entity-form">Entity Form</a>.</p>
+        <p>Dentro de los pasos debe configurarse un input tipo select que liste los elementos dentro de la taxonomía creada para los subplugins.</p>
+
+        <h4>Paso #7 - Empezar a crear Asistentes</h4>
+        <p>Ya se pueden empezar a crear asistentes con los pasos requeridos y los plugins adecuados para ellos.</p>
+        <p>Un mismo plugin se puede reutilizar en múltiples pasos si fuera necesario, pero se recomienda crear pasos independientes para cada asistente.</p>
+        
+        <br><br><br>
+    </div>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

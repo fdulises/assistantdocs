@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Assistant Manager - Documentacion</title>
+</head>
+<body>
+  
+  <div class="section no-pad-bot" id="firsttag">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Assistant Manager</h1>
+      <div class="row center">
+        <h2 class="header col s12 light">Documentacion para modulo construido en Drupal</h2>
+      </div>
+      <br><br>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div>
+        <h2>Introducción</h2>
+        <p>El modulo Assistant Manager para Drupal permite crear y gestionar múltiples asistentes desde el backoffice para
+          usarse para diferentes propósitos de forma flexible.</p>
+        <p>Los asistentes se crean como un tipo de contenido de Drupal, y a cada asistente se le asignan pasos, que son otro
+          tipo de contenido.</p>
+        <p>Para poder enlazar pasos a un asistente se usa el plugin <a
+            href="https://www.drupal.org/docs/8/modules/entity-browser/inline-entity-form">Entity Form</a> (el cual debe
+          configurarse adecuadamente o este no funcionara). Con este plugin se pueden poner los pasos deseados y se puede
+          establecer un orden para ellos de forma manual.</p>
+        <p>Cada paso de asistente cuenta con un selector de subplugins, los cuales están definidos como una taxonomía de Drupal.
+        </p>
+        <p>A su vez cada subplugin representa una carpeta de código dentro de la carpeta del Asistant Manager.</p>
+        <p>El poder del asistente esta en los subplugins, cada uno define un formulario de configuración a mostrar en el
+          backoffice y con esta configuración genera un formulario que se le mostrara al usuario de la app web.</p>
+        <p>Cada elemento del formulario se puede personalizar para poder crear todo tipo de elementos UI que se pudieran
+          necesitar en el proyecto.</p>
+        <p>Al final el usuario accederá a la URL del asistente y vera el formulario definido como primer paso, y conforme vaya
+          introduciendo y mandando los datos que se le solicitan el asistente ira generando los formularios de los demás pasos.
+        </p>
+        <p>El usuario incluso puede abandonar el asistente y después continuarlo desde donde lo dejo, ya que este cuenta con un
+          sistema para almacenar los datos introducidos.</p>
+      </div>
+      <br><br>
+    </div>
+  </main>
+  <script src="js/main.js"></script>
+  </body>
+</html>

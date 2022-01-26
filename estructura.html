@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura - Assistant Manager</title>
+</head>
+<body>
+<div class="section no-pad-bot" id="firsttag">
+    <div class="container">
+        <h1 class="header orange-text">Estructura general del modulo</h1>
+    </div>
+</div>
+<main>
+    <div class="container">
+        <p>El modulo cuenta con la siguiente estructura de archivos y directorios, de los cuales hablaremos a continuación.</p>
+        <pre><code>Assistantmanager/
+|--php/
+|  |--class/
+|  |  |--Assistant.php
+|  |  |--AssistantData.php
+|  |  |--AssistantStatus.php
+|  |  |--AssistantStep.php
+|  |  |--AssistantValidador.php
+|
+|--pm/
+|
+|--sql/
+|  |--schema.sql
+|
+|--src/
+|  |--Controller/
+|  |  |--PMController.php
+|  |
+|  |--Form/
+|  |  |--pmdefault.php
+|  |  |--pmform.php
+|
+|--assistantpluginmanager.info.yml
+|--assistantpluginmanager.module.yml
+|--pmconfig.yml.sample</code></pre>
+        
+        <h4>php/class/Assistant.php</h4>
+        <p>Clase que encapsula la lógica del asistente tanto para el backoffice.</p>
+        <p>En esta clase se encapsula el código que permite cargar la configuración de los subplugins de forma dinámica.</p>
+        <p>Realiza tareas como cargar en el backoffice el plugin que se selecciona y guardar los datos de los campos dinámicos, asi como repoblarlos cuando se esta editando un paso.</p>
+
+        <h4>php/class/AssistantData.php</h4>
+        <p>Clase con la lógica para procesar los datos del usuario ingresados mediante los asistentes.</p>
+        <p>Contiene los métodos CRUD del asistente así como la lógica para determinar que paso mostrar según el estado del usuario.</p>
+
+        <h4>php/class/AssistantStatus.php</h4>
+        <p>Clase auxiliar en el manejo de errores de los pasos del asistente.</p>
+
+        <h4>php/class/AssistantStep.php</h4>
+        <p>Clase con la lógica para generar el formulario dinámico de un paso en el frontoffice y proveer su información.</p>
+        <p>Según la información obtenida por AssistantData y los cálculos correspondientes se llamará finalmente a esta clase para que se encargue de generar un formulario en especifico.</p>
+
+        <h4>php/class/AssistantValidador.php</h4>
+        <p>Clase auxiliar para validar datos del usuario.</p>
+
+        <h4>pm/</h4>
+        <p>Directorio que contiene los subplugins internos del Asistente.</p>
+        <p>Cada directorio dentro de este corresponde con un plugin que debe estar registrado como termino de taxonomía para poder usarse.</p>
+
+        <h4>sql/schema.sql</h4>
+        <p>Archivo con la estructura SQL de la base de datos que requiere el plugin.</p>
+
+        <h4>src/Controller/PMController.php</h4>
+        <p>Archivo con rutas por defecto para redirigir al usuario al concluir el asistente y no tener ningún otro paso definido, y rutas para poder crear o vaciar la base de datos del modulo (Solo la ruta para vaciar base de datos esta operativa, se recomienda desactivarla en producción).</p>
+
+        <h4>src/Form/pmdefault.php</h4>
+        <p>Clase para construir formulario que se muestra por defecto cuando el asistente ya no cuenta con pasos.</p>
+        
+        <h4>src/Form/pmform.php</h4>
+        <p>Clase base para construir formularios dinamicos para los pasos del asistente.</p>
+        <p>Esta clase llama en automático el código del subplugin activo en las fases correspondientes (Pre-Build, Build, Validate, Send).</p>
+
+        <h4>assistantpluginmanager.module.yml</h4>
+        <p>Archivo principal con la logica del plugin, en el se incluyen los demas archivos del sistema y mediante funciones
+            definidas por Drupal se inyecta el código para el Backoffice y el Frontoffice</p>
+
+        <h4>assistantpluginmanager.info.yml</h4>
+        <p>Archivo que permite que el plugin sea reconocido por el nucleo de Drupal</p>
+        
+        <h4>pmconfig.yml.sample</h4>
+        <p>Archivo de configuración del plugin, este debe ser <mark>renombrado</mark> por "<b>pmconfig.yml</b>" y en el se encuentran los nombres de maquina de tipos de contenido, taxonomias y campos que se requieren para el funcionamiento.</p>
+        <br><br><br>
+        <h3>Funcionamiento del asistente Explicado usando MVC</h3>
+        <p><img style="max-width: 100%;" src="img/frontoffice.jpg" alt=""></p>
+
+        <br><br><br>
+    </div>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

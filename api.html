@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura del código API de GV - Assistant Manager</title>
+</head>
+<body>
+<div class="section no-pad-bot" id="firsttag">
+    <div class="container">
+        <h1 class="header orange-text">Estructura del código que gestiona la API de GV</h1>
+    </div>
+</div>
+<main>
+    <div class="container">
+        <p>A continuación explicaremos los archivos relacionados con la implementación de la API de GV</p>
+        <pre><code>src/
+|--Assistant/
+|  |--API.php
+|  |--APIHelper.php
+|  |--APIHotelHelper.php
+|  |--APIHotelListado.php
+|  |--APIHotelPresenter.php
+|  |--Helper.php
+|  |--Intereses.php
+|  |--SessionControl.php
+</code></pre>
+
+        <h4>src/Assistant/API.php</h4>
+        <p>Clase con todos los métodos para consumir la API.</p>
+
+        <h4>src/Assistant/APIHelper.php</h4>
+        <p>Clase que encapsula métodos auxiliares para procesar datos antes o después de enviarlos a la API.</p>
+
+        <h4>src/Assistant/APIHotelHelper.php</h4>
+        <p>Clase auxiliar para dar formato a arreglos que se enviarán o que se reciben de la API.</p>
+        <p>Cuenta con métodos para preparar y dar formato al filtro de fecha y de pasajeros según habitaciones para poder así hacer la búsqueda.</p>
+        <p>Otros métodos sirven para solicita a la API datos como las zonas, tipos y subtipos y ordenarlos de forma que se puedan relacionar con el listado de hoteles resultante y poder mostrar todos los datos relacionados con hoteles.</p>
+
+
+        <h4>src/Assistant/APIHotelListado.php</h4>
+        <p>Clase planeada para generar listado de Hoteles según los filtros del usuario.</p>
+        
+        <h4>src/Assistant/APIHotelPresenter.php</h4>
+        <p>Clase intermedia para preparar el listado de hoteles para que pueda ser mostrado por el front.</p>
+
+        <h4>src/Assistant/Helper.php</h4>
+        <p>Clase con Helpers mas generales, cuenta por ejemplo con el método log("string") para poder imprimir datos desde cualquier parte del asistente hacia un archivo en sites/default/files/assitant/log.txt.</p>
+        <p>Otros métodos que aquí se encuentran son los que permiten permutar arrays.</p>
+
+        <h4>src/Assistant/Intereses.php</h4>
+        <p>Clase que permite gestionar el listado de Intereses marcados por el usuario, ayuda a que el asistente de Intereses pueda determinar a donde mandar al usuario al entrar por primera vez o después de volver tras abandonar.</p>
+
+        <h4>src/Assistant/SessionControl.php</h4>
+        <p>Clase con la lógica para gestionar la sesión interna y la del endpoint, cuenta con los métodos para inicializar, reiniciar o validarla.</p>
+
+        <br><br><br>
+
+    </div>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

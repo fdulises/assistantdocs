@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura de un plugin interno - Assistant Manager</title>
+</head>
+<body>
+<div class="section no-pad-bot" id="firsttag">
+    <div class="container">
+        <h1 class="header orange-text">Estructura de un plugin interno</h1>
+    </div>
+</div>
+<main>
+    <div class="container">
+        <p>Los plugins internos deben colocarse en el directorio <strong>pm/</strong> dentro del Asistente.</p>
+        <p>Cada plugin interno del asistente debe contar con la siguiente estructura de archivos y directorios para poder ser integrado correctamente.</p>
+        <pre><code>PluginInterno/
+|--back/
+|  |--config.php
+|  |--fields.php
+|  |--fields_validate.php
+|  |--fields_pre.php
+|
+|--front/
+| |--fields.php
+| |--fields_validate.php
+| |--fields_pre.php
+</code></pre>
+
+        <h4>back/</h4>
+        <p>Directorio con los archivos requeridos por el asistente en el Backoffice</p>
+
+        <h4>back/config.php</h4>
+        <p>Archivo con información del plugin interno</p>
+
+        <h4>back/fields.php</h4>
+        <p>Archivo la definición de los campos dinámicos que generara el plugin interno y que se mostraran durante la edición de pasos del asistente.</p>
+
+        <h4>back/fields_validate.php</h4>
+        <p>Archivo con la lógica para validar la entrada de datos del usuario a través de los campos dinámicos.</p>
+
+        <h4>back/fields_pre.php</h4>
+        <p>Archivo que permite inyectar lógica antes del build del formulario.</p>
+
+        <h4>front/</h4>
+        <p>Directorio con los archivos requeridos por el asistente en el Frontoffice</p>
+        
+        <h4>front/fields.php</h4>
+        <p>Archivo la definición de los campos dinámicos que se mostraran en un paso del asistente.</p>
+        
+        <h4>front/fields_validate.php</h4>
+        <p>Archivo con la lógica para validar la entrada de datos del usuario a través de los campos dinámicos de un paso del asistente.</p>
+        
+        <h4>front/fields_pre.php</h4>
+        <p>Archivo que permite inyectar lógica antes del build del formulario.</p>
+
+    </div>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>
